@@ -22,6 +22,7 @@ namespace EcommerceAPI.Controllers
             _mapper = mapper;
         }
 
+        [Authorize]
         // GET: api/produtos
         [HttpGet]
         public async Task<ActionResult> GetAll()
@@ -31,6 +32,7 @@ namespace EcommerceAPI.Controllers
             return Ok(ApiResponse<IEnumerable<ProdutoDto>>.Ok(produtosDto, "Lista de produtos carregada com sucesso"));
         }
 
+        [Authorize]
         // GET: api/produtos/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult> GetById(int id)
